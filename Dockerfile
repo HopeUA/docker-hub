@@ -8,6 +8,7 @@ ENV \
     HUB_BUILD=399 \
     HUB_PORT=8080 \
     HUB_INSTALL=/usr/local/hub
+    HUB_URL=http://localhost
 
 RUN \
     apk add --no-cache --virtual=build-dependencies wget ca-certificates && \
@@ -23,13 +24,13 @@ RUN \
     # Configure
     echo "/usr/lib/jvm/default-jvm/bin/java" > "${HUB_INSTALL}/conf/hub.java.path" && \
 
-    BUNDLE_PROPS=${HUB_INSTALL}/conf/internal/bundle.properties && \
-    mkdir -p ${HUB_INSTALL}/conf/internal && \
-    echo "backups-dir=/data/backups" >> "${BUNDLE_PROPS}" && \
-    echo "temp-dir=/data/temp" >> "${BUNDLE_PROPS}" && \
-    echo "data-dir=/data/app" >> "${BUNDLE_PROPS}" && \
-    echo "logs-dir=/data/logs" >> "${BUNDLE_PROPS}" && \
-    echo "listen-port=${HUB_PORT}" >> "${BUNDLE_PROPS}" && \
+    ${HUB_INSTALL}/bin/hub.sh configure \
+        --backups-dir=/data/backups \
+        --temp-dir=/data/temp \
+        --data-dir=/data/app \
+        --logs-dir=/data/logs \
+        --listen-port=${HUB_PORT} \
+        --base-url=${HUB_URL} && \
 
     # Cleanup
     apk del build-dependencies && \
