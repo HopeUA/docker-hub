@@ -16,7 +16,6 @@ RUN \
     # Youtrack install
     wget https://download.jetbrains.com/hub/${HUB_VERSION}/hub-ring-bundle-${HUB_VERSION}.${HUB_BUILD}.zip && \
 
-    mkdir -p ${HUB_INSTALL} && \
     unzip hub-ring-bundle-${HUB_VERSION}.${HUB_BUILD}.zip && \
     rm -rf hub-ring-bundle-${HUB_VERSION}.${HUB_BUILD}/internal/java && \
     mv hub-ring-bundle-${HUB_VERSION}.${HUB_BUILD} ${HUB_INSTALL} && \
