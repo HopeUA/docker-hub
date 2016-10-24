@@ -7,7 +7,7 @@ ENV \
     HUB_VERSION=2.5 \
     HUB_BUILD=399 \
     HUB_PORT=8080 \
-    HUB_INSTALL=/usr/local/hub
+    HUB_INSTALL=/usr/local/hub \
     HUB_URL=http://localhost
 
 RUN \
