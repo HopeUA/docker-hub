@@ -7,7 +7,7 @@ ENV \
     HUB_VERSION=2.5 \
     HUB_BUILD=399 \
     HUB_PORT=8080 \
-    HUB_INSTALL=/usr/local/hub \
+    HUB_INSTALL=/usr/local/hub
 
 RUN \
     apk add --no-cache --virtual=build-dependencies wget ca-certificates && \
@@ -21,7 +21,7 @@ RUN \
     rm -rf hub-ring-bundle-${HUB_VERSION}.${HUB_BUILD}/internal/java && \
     mv hub-ring-bundle-${HUB_VERSION}.${HUB_BUILD} ${HUB_INSTALL} && \
 
-    echo /usr/lib/jvm/default-jvm/bin/java >> ${HUB_INSTALL}/conf/hub.java.path && \
+    echo "/usr/lib/jvm/default-jvm/bin/java" >> "${HUB_INSTALL}/conf/hub.java.path" && \
 
     # Cleanup
     apk del build-dependencies && \
