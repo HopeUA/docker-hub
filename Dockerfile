@@ -8,7 +8,7 @@ ENV \
     HUB_BUILD=399 \
     HUB_PORT=8080 \
     HUB_INSTALL=/usr/local/hub \
-    HUB_URL=http://localhost
+    HUB_URL=https://hub.hope.ua
 
 RUN \
     apk add --no-cache --virtual=build-dependencies wget ca-certificates && \
@@ -34,7 +34,7 @@ RUN \
 
     # Cleanup
     apk del build-dependencies && \
-    rm "/tmp/"*
+    rm -rf "/tmp/"*
 
 VOLUME /data
 
