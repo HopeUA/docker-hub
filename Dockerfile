@@ -9,8 +9,6 @@ ENV \
     HUB_PORT=8080 \
     HUB_INSTALL=/usr/local/hub \
 
-COPY container-files/ /tmp/
-
 RUN \
     apk add --no-cache --virtual=build-dependencies wget ca-certificates && \
     cd "/tmp" && \
