@@ -30,5 +30,5 @@ VOLUME /data
 
 EXPOSE ${HUB_PORT}
 
-ENTRYPOINT "${HUB_INSTALL}/bin/hub.sh"
+ENTRYPOINT ["/usr/local/hub/bin/hub.sh"]
 CMD ["run", "--no-browser"]
