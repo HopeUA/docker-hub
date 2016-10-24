@@ -13,14 +13,22 @@ RUN \
     apk add --no-cache --virtual=build-dependencies wget ca-certificates && \
     cd "/tmp" && \
 
-    # Youtrack install
+    # Install
     wget https://download.jetbrains.com/hub/${HUB_VERSION}/hub-ring-bundle-${HUB_VERSION}.${HUB_BUILD}.zip && \
 
     unzip hub-ring-bundle-${HUB_VERSION}.${HUB_BUILD}.zip && \
     rm -rf hub-ring-bundle-${HUB_VERSION}.${HUB_BUILD}/internal/java && \
     mv hub-ring-bundle-${HUB_VERSION}.${HUB_BUILD} ${HUB_INSTALL} && \
 
-    echo "/usr/lib/jvm/default-jvm/bin/java" >> "${HUB_INSTALL}/conf/hub.java.path" && \
+    # Configure
+    echo "/usr/lib/jvm/default-jvm/bin/java" > "${HUB_INSTALL}/conf/hub.java.path" && \
+
+    BUNDLE_PROPS=${HUB_INSTALL}/conf/internal/bundle.properties && \
+    echo "backups-dir=/data/backups" >> "${BUNDLE_PROPS}" && \
+    echo "temp-dir=/data/temp" >> "${BUNDLE_PROPS}" && \
+    echo "data-dir=/data/app" >> "${BUNDLE_PROPS}" && \
+    echo "logs-dir=/data/logs" >> "${BUNDLE_PROPS}" && \
+    echo "listen-port=${HUB_PORT}" >> "${BUNDLE_PROPS}" && \
 
     # Cleanup
     apk del build-dependencies && \
