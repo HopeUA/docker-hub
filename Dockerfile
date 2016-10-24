@@ -30,6 +30,7 @@ RUN \
         --data-dir=/data/app \
         --logs-dir=/data/logs \
         --listen-port=${HUB_PORT} \
+        --disable.configurationWizard=1 \
         --base-url=${HUB_URL} && \
 
     # Cleanup
