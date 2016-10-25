@@ -25,7 +25,8 @@ RUN \
         --backups-dir=/data/backups \
         --temp-dir=/data/temp \
         --data-dir=/data/app \
-        --logs-dir=/data/logs && \
+        --logs-dir=/data/logs \
+        --listen-port=${HUB_PORT} && \
 
     # Cleanup
     apk del build-dependencies && \
