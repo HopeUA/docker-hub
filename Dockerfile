@@ -4,8 +4,8 @@ MAINTAINER Sergey Sadovoi <sergey@hope.ua>
 
 ENV \
     # https://www.jetbrains.com/hub/download/#section=linux-version
-    HUB_VERSION=2.5 \
-    HUB_BUILD=399 \
+    HUB_VERSION=2017.2 \
+    HUB_BUILD=5734 \
     HUB_PORT=8080 \
     HUB_INSTALL=/usr/local/hub
 

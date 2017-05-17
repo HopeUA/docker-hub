@@ -9,6 +9,6 @@ https://www.jetbrains.com/hub/
 
     docker run -p 8080:8080 hope/hub
     
-### Enviroment variables
+### Environment variables
 
 **HUB_PORT** – public port for app (default 8080)
